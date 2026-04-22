@@ -182,7 +182,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-spm-integration-
       - name: "Setup Supabase CLI"
-        uses: supabase/setup-cli@v1
+        uses: supabase/setup-cli@v2
         with:
           version: latest
       - name: "Start Supabase"
