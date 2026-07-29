@@ -60,7 +60,7 @@ jobs:
           - { xcode: "16.4", platform: MACOS, command: test }
           - { xcode: "16.4", platform: MACOS, command: "" }
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Cache derived data
         uses: actions/cache@v5
         with:
@@ -108,7 +108,7 @@ jobs:
         include:
           - { command: test, skip_release: 1 }
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Select Xcode ${{ matrix.xcode }}
         run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
       - name: List available devices
@@ -141,7 +141,7 @@ jobs:
       matrix:
         config: [debug, release]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/cache@v5
         with:
           path: .build
@@ -155,7 +155,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: "Cache Swift Package"
         uses: actions/cache@v5
         with:
@@ -173,7 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: "Cache Swift Package"
         uses: actions/cache@v5
         with:
@@ -204,7 +204,7 @@ jobs:
   #   name: Android
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v6
+  #     - uses: actions/checkout@v7
   #     - name: "Remove IntegrationTests"
   #       run: rm -r Tests/IntegrationTests/*
   #     - name: "Test Swift Package"
@@ -223,7 +223,7 @@ jobs:
       matrix:
         xcode: ["16.3"]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Cache derived data
         uses: actions/cache@v5
         with:
@@ -244,7 +244,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Cache derived data
         uses: actions/cache@v5
         with:
@@ -273,7 +273,7 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Cache Swift build
         uses: actions/cache@v5
         with:
@@ -290,7 +290,7 @@ jobs:
     runs-on: macos-15
     if: github.event_name == 'pull_request'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Get changed Swift files
